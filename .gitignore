@@ -1,0 +1,9 @@
+﻿################################################################################
+# この .gitignore ファイルは Microsoft(R) Visual Studio によって自動的に作成されました。
+################################################################################
+
+/src/CsvManager/CsvManagerTests/obj
+/src/CsvManager/CsvManagerTests/bin/Debug/.netcoreapp,version=v5.0
+/src/CsvManager/CsvManager/obj
+/src/CsvManager/CsvManager/bin/Debug/net5.0
+/src/CsvManager/.vs/CsvManager
