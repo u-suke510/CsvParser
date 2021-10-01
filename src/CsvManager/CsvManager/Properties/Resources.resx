@@ -120,4 +120,7 @@
   <data name="MsgErrFileNotFound" xml:space="preserve">
     <value>ファイルが見つかりませんでした。(path:{0})</value>
   </data>
+  <data name="MsgInfoTextLineBlank" xml:space="preserve">
+    <value>文字列がブランクです。</value>
+  </data>
 </root>

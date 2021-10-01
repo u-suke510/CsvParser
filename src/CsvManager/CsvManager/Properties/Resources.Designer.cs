@@ -68,5 +68,14 @@ namespace CsvManager.Properties {
                 return ResourceManager.GetString("MsgErrFileNotFound", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   文字列がブランクです。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MsgInfoTextLineBlank {
+            get {
+                return ResourceManager.GetString("MsgInfoTextLineBlank", resourceCulture);
+            }
+        }
     }
 }

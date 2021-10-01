@@ -16,16 +16,12 @@ namespace CsvManager
     public class CsvParser : ICsvParser
     {
         private readonly ILogger<CsvParser> logger;
-        private List<string> lineText = new List<string>();
-        public string CsvText
+        private List<string[]> csvData;
+        public List<string[]> CsvData
         {
             get
             {
-                if (!lineText.Any())
-                {
-                    return string.Empty;
-                }
-                return string.Join(Environment.NewLine, lineText);
+                return csvData;
             }
         }
 
@@ -42,14 +38,32 @@ namespace CsvManager
                 return false;
             }
 
+            var items = new List<string[]>();
             using (var sr = new StreamReader(path, Encoding.UTF8))
             {
                 while (sr.Peek() > -1)
                 {
-                    lineText.Add(sr.ReadLine());
+                    var item = getColumnItems(sr.ReadLine());
+                    if (item.result)
+                    {
+                        items.Add(item.value);
+                    }
                 }
             }
+
+            csvData = items;
             return true;
+        }
+
+        public (bool result, string[] value) getColumnItems(string line)
+        {
+            if (string.IsNullOrEmpty(line))
+            {
+                logger.LogInformation(Resources.MsgInfoTextLineBlank);
+                return (false, null);
+            }
+
+            return (true, line.Split(","));
         }
     }
 }
